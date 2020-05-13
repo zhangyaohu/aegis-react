@@ -72,7 +72,6 @@ class LeftNav extends Component {
 	
  // 菜单点击事件
  _handleClick = (e) => {
-	 debugger;
 	this.props.history.push(`/${e.key}`)
 	localStorage.lastLink = e.key;
 }
@@ -124,6 +123,7 @@ leftMenuHighLight = () => {
 					mode="inline"
 					onClick={this._handleClick}
 					inlineIndent="16"
+					theme="dark"
 					openKeys={openKeys}
 					onOpenChange={this.onOpenChange}
 					selectedKeys={this.leftMenuHighLight()}

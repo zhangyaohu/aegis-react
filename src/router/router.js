@@ -10,7 +10,8 @@ import TrendList from '@pages/trend';
 import TableSpaceList from '@pages/tableSpace';
 import SectionSpaceList from '@pages/section';
 import SqlReportList from '@pages/sqlReport';
-import TrendMetric from '@pages/TrendMetric';
+import TrendMetric from '@pages/trendMetric';
+import UserList from '@pages/user';
 export default () => (
   //是否开启history模式
   <Router>
@@ -25,7 +26,7 @@ export default () => (
 							<Route {...props} path="/main/section-space" component={SectionSpaceList}></Route>
 							<Route {...props} path="/main/sql-report" component={SqlReportList}></Route>
 							<Route {...props} path="/main/trend-metric" component={TrendMetric}></Route>
-							<Route {...props} path="/main/sql-bind1" component={Home}></Route>
+							<Route {...props} path="/main/user-manager" component={UserList}></Route>
 					    <Redirect to="/main/alarm-list"/>
 					 </Switch>
 				 </Main>

@@ -4,7 +4,8 @@ import { Button, Table } from 'antd';
 import AlaramHttp from './http.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { queryList } from '@pages/alarm/store/actionCreator';
+import { queryList } from '@pages/user/store/actionCreator';
+import { formatDateTime } from '@common/utils/utils';
 
 class AlaramList extends Component {
 	constructor(props) {
@@ -66,43 +67,68 @@ class AlaramList extends Component {
 		const { data, loading } = this.state;
 		const columns = [
 			{
-				title: '告警时间',
-				dataIndex: 'name',
+				title: '编号',
+				dataIndex: 'id',
 				sorter: true,
-				render: name => `${name.first} ${name.last}`,
 				width: '20%',
 			},
 			{
-				title: '主机名称',
-				dataIndex: 'gender',
+				title: '名称',
+				dataIndex: 'username',
 				width: '20%',
 			},
 			{
-				title: '服务名称',
+				title: '邮箱',
 				dataIndex: 'mail',
 			},
 			{
-				title: '告警信息',
+				title: '旺旺',
+				dataIndex: 'ww'
 			},
 			{
-				title: '类型'
+				title: '手机',
+				dataIndex: 'mobile'
 			},
 			{
-				title: '子类型'
+				title: '角色',
+				dataIndex: 'role'
 			},
 			{
-				title: '级别'
+				title: '管理员',
+				dataIndex: 'super'
 			},
 			{
-				title: '角色组'
+				title: '操作',
+				key:'operate',
+				render: (row) => {
+          return (
+						<Fragment>
+							<a>编辑</a> | <a>修改密码</a>
+						</Fragment>
+					)
+				}
 			},
 			{
-				title: '负责人'
+				title: '所属角色',
+				render: () => {
+					return (
+						<Fragment>
+							<a>所属角色</a>
+						</Fragment>
+					)
+				}
+			},
+			{
+				title: '编辑时间',
+				dataIndex: 'gmt_modified',
+				render: (row) => {
+					return formatDateTime(row, 'yyyy-MM-dd hh:mm:ss')
+				}
 			}
 		];
 		return <Fragment>
 			<div className='page-header'>
-				<div className='page-title'>趋势图预警</div>
+				<div className='page-title'>用户管理</div>
 			</div>
 			<div className='page-toolbar'>
 				<SearchBox conditionNameList={this.state.conditionNameList} handleInput={this.setCondition}></SearchBox>
@@ -111,8 +137,8 @@ class AlaramList extends Component {
 			<div>
 				<Table
 					columns={columns}
-					rowKey={(record, index) => index}
 					dataSource={data}
+					rowKey={(record, index) => index}
 					pagination={{
 						current: this.state.pageIndex,
 						pageSize: this.state.pageSize
@@ -126,7 +152,7 @@ class AlaramList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	result: state.getIn(['alarm', 'result']),
+	result: state.getIn(['user', 'result']),
 })
 //mapDispatch异步操作触发action然后通过reducer来改变状态树的值
 const mapDispatchToProps = (dispatch, ownerProps) => ({

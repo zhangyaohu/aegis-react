@@ -7,6 +7,7 @@ import {reducer as tableSpaceReducer} from '@pages/tableSpace/store';
 import {reducer as sectionSpaceReducer} from '@pages/section/store';
 import {reducer as sqlReportReducer} from '@pages/sqlReport/store';
 import {reducer as trendMetricReducer} from '@pages/trendMetric/store';
+import {reducer as userReducer} from '@pages/user/store';
 
 const reducer = combineReducers({
 	login: loginReducer,
@@ -16,7 +17,8 @@ const reducer = combineReducers({
 	tableSpace: tableSpaceReducer,
 	section: sectionSpaceReducer,
 	sqlReport: sqlReportReducer,
-	trendMetric: trendMetricReducer
+	trendMetric: trendMetricReducer,
+	user: userReducer
 })
 
 export default reducer;

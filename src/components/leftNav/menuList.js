@@ -41,52 +41,10 @@ export const oracleList = [
 
 export const configList = [
   {
-    path: 'user-manager',
+    path: 'main/user-manager',
     title: '用户管理',
     type: 'link',
     icon: 'aegis-yonghuguanli',
-    children: []
-  },
-  {
-    path: 'role-manager',
-    title: '角色管理',
-    type: 'link',
-    icon: 'aegis-jiaoseguanli',
-    children: []
-  },
-  {
-    path: 'host-manager',
-    title: '主机管理',
-    type: 'link',
-    icon: 'aegis-pingtaiguanlizhujiguanli',
-    children: []
-  },
-  {
-    path: 'host-group',
-    title: '主机群组',
-    type: 'link',
-    icon: 'aegis-jiqun',
-    children: []
-  },
-  {
-    path: 'template-manager',
-    title: '模板管理',
-    type: 'link',
-    icon: 'aegis-template-management',
-    children: []
-  },
-  {
-    path: 'except-manager',
-    title: '异常管理',
-    type: 'link',
-    icon: 'aegis-yichangguanli',
-    children: []
-  },
-  {
-    path: 'login-rank',
-    title: '登录排行',
-    type: 'link',
-    icon: 'aegis-paihang',
     children: []
   }
 ]

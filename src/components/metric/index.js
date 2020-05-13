@@ -384,7 +384,7 @@ class LineMetric extends Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener("resize", () => _this.state.chartInstance.resize());
+		window.removeEventListener("resize", () => echarts.init(_this.refs["chart-content"]).resize());
 	}
 
 	render() {

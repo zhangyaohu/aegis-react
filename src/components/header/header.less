@@ -5,6 +5,8 @@
 	position: absolute;
 	box-shadow: 0px 1px 2px #eee;
 	z-index: 1;
+	display: flex;
+	background: #233344;
 	&__layout{
 		display: inline-block;
     height: 60px;
@@ -65,5 +67,13 @@
 				color: #409EFF;
 			}
 		}
+	}
+	&-logo{
+		flex: 0 1 180px;
+    vertical-align: middle;
+    text-align: center;
+	}
+	&-content{
+		flex: 1 1 auto;
 	}
 }
