@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import SearchBox from '@components/searchBox';
 import { Button, Table } from 'antd';
-import tableSpaceHttp from './http.js';
+import sqlReportHttp from './http.js';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { queryList } from '@pages/tableSpace/store/actionCreator';
+import { queryList } from '@pages/sqlReport/store/actionCreator';
 import { formatDateTime } from '@common/utils/utils';
 
 class TableSpaceList extends Component {
@@ -51,7 +51,7 @@ class TableSpaceList extends Component {
   //查询列表
 	queryList = () => {
 		this.setState({ loading: true }, () => {
-			tableSpaceHttp.queryList(this.getCondition())
+			sqlReportHttp.queryList(this.getCondition())
 			.then((resp) => {
 				this.props.actions.queryList(resp);
 				//更新数据
@@ -66,7 +66,6 @@ class TableSpaceList extends Component {
 		this.setState({pageIndex: pagination.current, pageSize: pagination.pageSize }, () => {
 			this.queryList();
 		});
-		debugger
 		//排序操作
 		let sortFlag = sorter.order === "ascend" ? '+' : "-"
 		if(this.state.sortBy !== sorter.field || this.state.sortDirection !== sortFlag) {
@@ -95,46 +94,50 @@ class TableSpaceList extends Component {
 				}
 			},
 			{
-				title: '实例名',
+				title: '实例',
 				dataIndex: 'service',
 				width: '20%',
 				key:'service'
 			},
 			{
-				title: '创建者',
-				dataIndex: 'owner',
-				key:'owner',
+				title: 'total',
+				dataIndex: 'total',
+				key:'total',
 			},
 			{
-				title: '段名',
-				dataIndex: 'segmeng_name',
-				key:'segmeng_name',
+				title: 'fsc',
+				dataIndex: 'fscan',
+				key:'fscan',
 			},
 			{
-				title: '分区名',
-				dataIndex: 'partition_name',
-				key:'partition_name',
+				title: 'exec',
+				dataIndex: 'execs',
+				key:'execs',
 			},
 			{
-				title: '使用(MB)',
-				dataIndex: 'used_space',
-				key:'used_space',
+				title: 'buff',
+				dataIndex: 'lgrds',
+				key:'lgrds',
 			},
 			{
-				title: '最后DDL时间(%)',
-				dataIndex: 'last_ddl_time',
-				key:'last_ddl_time',
-				render: (row) => {
-					return formatDateTime(row, 'yyyy-MM-dd hh:mm:ss')
-				}
+				title: 'disk',
+				dataIndex: 'phrds',
+				key:'phrds'
 			},
 			{
-				title: '历史数据',
-				dataIndex: '',
-			 	key:'history',
-			render: (value, row, index) => {
-				return <a>历史数据</a>
-			}
+				title: 'rows',
+				dataIndex: 'rows',
+			 	key:'rows',
+			},
+			{
+				title: 'elap',
+				dataIndex: 'elapsed',
+			 	key:'elapsed',
+			},
+			{
+				title: 'sort',
+				dataIndex: 'sorts',
+			  key: 'sorts'
 			}
 		];
 		return <Fragment>
@@ -168,7 +171,7 @@ class TableSpaceList extends Component {
 }
 //获得数据请求结果
 const mapStateToProps = (state) => ({
-	result: state.getIn(['tableSpace', 'result']),
+	result: state.getIn(['sqlReport', 'result']),
 })
 //mapDispatch异步操作触发action然后通过reducer来改变状态树的值
 const mapDispatchToProps = (dispatch, ownerProps) => ({

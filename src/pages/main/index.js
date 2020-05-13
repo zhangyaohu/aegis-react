@@ -18,7 +18,9 @@ class Main extends Component {
 		 	  <LeftNav  menuList={this.props.menuList} {...this.props}></LeftNav>
 		  	<div className='main-container'>
 			    <div className='main-content'>
-					  {this.props.children}
+						<div className='main-children'>
+		           {this.props.children}
+						</div>
 					</div>
 			  </div>
 			</div>

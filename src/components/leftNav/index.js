@@ -72,6 +72,7 @@ class LeftNav extends Component {
 	
  // 菜单点击事件
  _handleClick = (e) => {
+	 debugger;
 	this.props.history.push(`/${e.key}`)
 	localStorage.lastLink = e.key;
 }

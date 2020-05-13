@@ -26,107 +26,15 @@ export const alarmList =  [
     type: 'link',
     icon: 'aegis-shot_time',
     children: []
-  },
-  {
-    path: 'main/sql-report',
-    title: 'SQL区段报表',
-    type: 'link',
-    icon: 'aegis-mysql',
-    children: []
-  },
-  {
-    path: 'main/sql-bind',
-    title: 'SQL区段绑定变量',
-    type: 'link',
-    icon: 'aegis-SQLshujuji',
-    children: []
-  },
-  {
-    path: '$$sql-bind',
-    title: 'SQL区段绑定变量',
-    type: 'button',
-    icon: 'aegis-SQLshujuji',
-    children: [
-      {
-        path: 'main/sql-bind1',
-        title: 'SQL区段绑定变量',
-        type: 'link',
-        icon: 'aegis-SQLshujuji',
-        children: []
-      },
-    ]
   }
 ];
 
 export const oracleList = [
   {
-    path: 'trend-metric',
+    path: 'main/trend-metric',
     title: '关键指标趋势',
     type: 'link',
     icon: 'aegis-qushitu',
-    children: []
-  },
-  {
-    path: 'session-history',
-    title: '活动会话历史',
-    type: 'link',
-    icon: 'aegis-lishi',
-    children: []
-  },
-  {
-    path: 'awr-snapshot',
-    title: 'AWR快照报表',
-    type: 'link',
-    icon: 'aegis-yunyingpankuaizhao',
-    children: []
-  },
-  {
-    path: 'sql-quote',
-    title: 'SQL全文索引',
-    type: 'link',
-    icon: 'aegis-suoyinguanli',
-    children: []
-  },
-  {
-    path: 'quote-report',
-    title: '索引访问报表',
-    type: 'link',
-    icon: 'aegis-biaoge',
-    children: []
-  },
-  {
-    path: 'record-change',
-    title: '记录变更报表',
-    type: 'link',
-    icon: 'aegis-jilu',
-    children: []
-  },
-  {
-    path: 'order-report',
-    title: '序列监控报表',
-    type: 'link',
-    icon: 'aegis-xulie',
-    children: []
-  },
-  {
-    path: 'data-dict',
-    title: '数据字典报表',
-    type: 'link',
-    icon: 'aegis-shujuzidian',
-    children: []
-  },
-  {
-    path: 'tablespace-report',
-    title: '表空间报表',
-    type: 'link',
-    icon: 'aegis-jiqunguanli',
-    children: []
-  },
-  {
-    path: 'sectionspace-report',
-    title: '段空间报表',
-    type: 'link',
-    icon: 'aegis-shot_time',
     children: []
   }
 ]

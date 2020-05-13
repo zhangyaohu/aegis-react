@@ -1,3 +1,4 @@
+import { uniqBy } from 'lodash';
 export const formatDateTime = (data, format) => {
 	if (!data) return;
 	let date = new Date(data);
@@ -18,4 +19,40 @@ export const formatDateTime = (data, format) => {
 			RegExp.$1.length == 1 ? o[k] :
 				("00" + o[k]).substr(("" + o[k]).length));
 	return format;
+}
+
+export const getService = (data) => {
+	if(!!data){
+		let arr = data.map(item => {
+			return {
+				label: item.service || item.SERVICE,
+				value: item.service || item.SERVICE
+			}
+		})
+		return uniqBy(arr, (item) => item.value)
+	}
+	else return []
+}
+
+export const formatSize = (bytes, unit, width) => {
+	bytes = Number(bytes);
+	// if (bytes < 1 && bytes > 0)
+	if (typeof bytes !== 'number' || isNaN(bytes)) bytes = 0;
+	if (bytes < 0) bytes = 0;
+	if (typeof width === 'undefined') width = 2;
+	if (typeof unit === 'undefined') unit = 'B';
+	var num = Math.pow(10, width);
+	var sizes = ['K', 'M', 'G', 'T', 'P'];
+	if (unit) {
+		sizes.unshift('')
+	} else {
+		sizes.unshift('Byte')
+	}
+	if (bytes === 0) return '0 ' + sizes[0] + unit;
+	var i = Math.floor(Math.log(bytes) / Math.log(1024));
+	// for 0.xxxx number
+	if (i < 0) i = 0;
+	if (sizes[i] === 'B') num = 1;
+	if (i >= 5) i = 5;
+	return Math.round(bytes / Math.pow(1024, i) * num) / num + ' ' + sizes[i] + unit
 }

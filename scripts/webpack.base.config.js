@@ -128,13 +128,12 @@ const webpackConfigBase = {
         loader: 'url-loader',
         options: {
           limit: 8192,
-          esModule: false,
-          name: '[name].[hash:4].[ext]',
-          outputPath: 'img'
+          name: 'img/[name].[hash:4].[ext]',
+          publicPath: '/'
         }
       },
       {
-        test: /\.(woff|eot|ttf|svg|gif)$/,
+        test: /\.(woff|eot|ttf|svg)$/,
         loader: 'url-loader',
         options: {
           limit: 8192,

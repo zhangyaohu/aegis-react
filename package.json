@@ -130,6 +130,7 @@
     "jsdom": "^12.2.0",
     "less": "~2.7.1",
     "less-loader": "^4.0.6",
+    "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.8.0",
     "mockjs": "^1.0.1-beta3",
     "optimize-css-assets-webpack-plugin": "^5.0.3",

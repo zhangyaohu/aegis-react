@@ -24,21 +24,25 @@ class Header extends Component {
 			case 'alarm':
 				localStorage.namespace = 'alarm';
 				this.props.history.push('/main/alarm-list');
+				localStorage.lastLink= 'main/alarm-list'
 				this.props.actions.getMenuList(alarmList);
 				break;
 			case 'oracle':
 				localStorage.namespace = 'oracle';
-				this.props.history.push('/main/oracle');
+				this.props.history.push('/main/trend-metric');
+				localStorage.lastLink= 'main/trend-metric'
 				this.props.actions.getMenuList(oracleList);
 				break;
 			case 'config':
 				localStorage.namespace = 'config';
 				this.props.history.push('/main/user');
+				localStorage.lastLink= 'main/user'
 				this.props.actions.getMenuList(configList);
 				break;
 			default:
 				localStorage.namespace = 'alarm';
 				this.props.history.push('/main/alarm-list');
+				localStorage.lastLink= 'main/alarm-list'
 				this.props.actions.getMenuList(alarmList);
 		}
 		this.setState(() => {
@@ -49,6 +53,7 @@ class Header extends Component {
 	}
 
 	componentDidMount() {
+		debugger;
 		if (localStorage.namespace) {
 			switch (localStorage.namespace) {
 				case 'alarm':
@@ -102,7 +107,7 @@ class Header extends Component {
 					<span className="header__layout">
 						<span className="header__layout__image"></span>
 						<ul className="header__layout_item__content">
-							<li></li>
+	            <li>{localStorage.user ? localStorage.user : ''}</li>
 							<li>修改密码</li>
 							<li onClick={this.layout}>退出登录</li>
 						</ul>

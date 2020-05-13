@@ -31,7 +31,8 @@ class Login extends Component {
 						message.info(this.props.result.message)
 						return;
 					}
-					this.props.history.push('/main')
+					localStorage.user= value.name;
+					localStorage.lastLink ? this.props.history.push(`/${localStorage.lastLink}`) : this.props.history.push('/main')
 				})
 			}
 	 })
