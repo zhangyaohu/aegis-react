@@ -20,7 +20,7 @@
     "crypto": "^1.0.1",
     "express-session": "^1.17.0",
     "jasypt": "^1.0.1",
-    "log4js": "^6.2.1",
+    "log4js": "^6.4.0",
     "mysql": "^2.18.1"
   }
 }
